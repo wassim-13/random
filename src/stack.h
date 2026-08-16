@@ -43,6 +43,8 @@ template <typename T> void Stack<T>::push(T val)
 
 template <typename T> void Stack<T>::pop()
 {
+    if (this->head == nullptr)
+        return;
     Node<T>* temp = this->head->next;
 
     delete this->head;
@@ -53,9 +55,8 @@ template <typename T> void Stack<T>::print()
     Node<T>* curr = this->head;
     while (curr->next != nullptr)
     {
-        Node<T>* temp = curr->next;
         std::cout << curr->value << ", ";
-        curr = temp;
+        curr = curr->next;
     }
     std::cout << curr->value << std::endl;
 }
