@@ -1,9 +1,12 @@
 #include "app.h"
 
 #include "args/debug.h"
+#include "process.h"
 
+#include <algorithm>
 #include <memory>
 #include <print>
+#include <random>
 #include <utility>
 
 App::App() {
@@ -21,17 +24,18 @@ void App::run(vector<string>& args) {
     app_data = std::move(data.a_data);
     print_data = std::move(data.p_data);
 
-    dbg("Handling Args : Done !");
-    dbg("landed with :");
-    dbg("App data :");
-    dbg("-> dirs  {}", app_data->dirs);
-    dbg("-> files {}", app_data->files);
-    dbg("-> extra {}", app_data->extras);
-    dbg("Print data :");
-    dbg("-> limit    {}", print_data->limit);
-    dbg("-> indexed  {}", print_data->index);
-    dbg("-> quantity {}", print_data->quantity);
-    dbg("-> list     {}", print_data->list);
+    if (!app_data->dirs.empty()) {
+        app_data->extras.append_range(process::dirs(app_data->dirs));
+    }
+
+    if (!app_data->files.empty()) {
+        app_data->extras.append_range(process::files(app_data->files));
+    }
+
+    random_device rd;
+    mt19937 gen(rd());
+
+    shuffle(app_data->extras.begin(), app_data->extras.end(), gen);
 
     for (auto& str : app_data->extras) {
         println("{}", str);

@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.16)
 
 project(
     random
-    VERSION 0.1.0
+    VERSION 0.1.2
     LANGUAGES CXX
 )
 
@@ -12,12 +12,16 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_executable(random
     src/main.cpp
-    src/core/app.cpp
-    src/core/utils.cpp
-    src/args/options.cpp
-    src/args/long_args.cpp
-    src/args/short_args.cpp
+
     src/args/args.cpp
+    src/args/input.cpp
+    src/args/long_args.cpp
+    src/args/options.cpp
+    src/args/short_args.cpp
+
+    src/core/app.cpp
+    src/core/process.cpp
+    src/core/utils.cpp
 )
 
 target_include_directories(random PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src/)
