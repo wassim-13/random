@@ -1,4 +1,6 @@
+#include "core/utils.h"
 #include "debug.h"
+#include "input.h"
 #include "long_args.h"
 #include "short_args.h"
 
@@ -48,6 +50,12 @@ Basic_data handle_args(vector<string>& args) {
     if (!arg_list.empty()) {
         dbg("appending {} to extras", arg_list);
         data.a_data->extras.append_range(arg_list);
+    }
+
+    if (data.a_data->dirs.empty() && data.a_data->files.empty() &&
+        data.a_data->extras.empty()) {
+        string input = read_line("enter words : ");
+        data.a_data->extras = split_whitespace(input);
     }
 
     return data;

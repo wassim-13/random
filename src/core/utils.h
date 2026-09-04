@@ -2,9 +2,12 @@
 #define UTILS_H
 
 #include <cstdint>
+#include <string>
 #include <string_view>
+#include <vector>
 
 int64_t get_number(std::string_view str, int default_val);
+std::vector<std::string> split_whitespace(std::string_view str);
 
 constexpr uint32_t hash_str(std::string_view str) {
     uint32_t hash = 2166136261u;
