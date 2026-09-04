@@ -1,5 +1,4 @@
 #include "app.h"
-
 #include "args/debug.h"
 #include "process.h"
 
@@ -54,21 +53,42 @@ void App::run(vector<string>& args) {
     // add a proper printings
     //
 
-    // basic idea for -i and -l
+    // basic idea for -i and -l and -q
 
     bool indexed = print_data->index;
     bool limit = false;
+    bool quantity = false;
+
     char en = !print_data->list ? ' ' : '\n';
 
     if (print_data->limit >= 0) {
         limit = true;
     }
+    if (print_data->quantity >= 0) {
+        quantity = true;
+    }
 
     int64_t line = 0;
+
+    int64_t left = print_data->quantity;
 
     for (auto& str : app_data->extras) {
         if (limit && line >= print_data->limit)
             break;
+        if (quantity) {
+
+            uniform_int_distribution<int8_t> dist(1, min(left, 3L));
+
+            int8_t temp = dist(gen);
+            left -= temp;
+
+            print("{} : {}{}", temp, str, en);
+
+            if (left == 0)
+                break;
+
+            continue;
+        }
 
         if (indexed) {
             print("{} : {}{}", line, str, en);
@@ -77,5 +97,7 @@ void App::run(vector<string>& args) {
         }
         line++;
     }
-    println();
+    if (en == ' ') {
+        println();
+    }
 }
