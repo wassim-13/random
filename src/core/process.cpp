@@ -1,4 +1,5 @@
 #include "process.h"
+#include "args/debug.h"
 
 #include <filesystem>
 #include <fstream>
@@ -41,6 +42,8 @@ vector<string> process::dirs(vector<string>& dirs) {
 }
 std::vector<std::string> process::files(std::vector<std::string>& files) {
 
+    println("what a beutiful day");
+
     vector<string> lines;
 
     for (auto& fil : files) {
@@ -65,7 +68,6 @@ std::vector<std::string> process::files(std::vector<std::string>& files) {
             println(stderr, "Failed to open file: {}", fil);
         }
 
-        std::vector<std::string> lines;
         std::string line;
 
         while (std::getline(file, line)) {
@@ -77,6 +79,7 @@ std::vector<std::string> process::files(std::vector<std::string>& files) {
             continue;
         }
     }
+
     return lines;
 }
 // namespace process

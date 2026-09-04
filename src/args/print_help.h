@@ -24,7 +24,7 @@ constexpr void print_help() {
     {2}-q, --quantity{3}  {1}<num>{3}     Specify the total number, give each a random number
     {2}-V, --version{3}             Display program version information
     {2}-v, --verbose{3}             Enable detailed debug logging
-        {2}--one-line{3}            Output in one line
+        {2}--oneline{3}             Output in one line
 
 {0}Arguments:{3}
     {1}<dirs>{3} directories
