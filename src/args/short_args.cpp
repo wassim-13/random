@@ -1,10 +1,6 @@
-#include "short_args.h"
 #include "debug.h"
 #include "options.h"
 #include "print_help.h"
-
-#include <string_view>
-#include <vector>
 
 void short_args(Basic_data& data, vector<string>& arg_list, string_view arg) {
 

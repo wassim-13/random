@@ -2,10 +2,6 @@
 #include "debug.h"
 #include "input.h"
 #include "long_args.h"
-#include "short_args.h"
-
-#include <cstdlib>
-#include <memory>
 
 using namespace std;
 

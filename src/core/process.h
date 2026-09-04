@@ -2,7 +2,6 @@
 #define PROCESS_H
 
 #include <memory>
-#include <string>
 #include <vector>
 
 struct MappedFile {

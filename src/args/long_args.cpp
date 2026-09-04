@@ -1,10 +1,7 @@
-#include "long_args.h"
 #include "core/utils.h"
 #include "debug.h"
 #include "options.h"
 #include "print_help.h"
-
-#include <string_view>
 
 void long_args(Basic_data& data, vector<string>& arg_list, string_view arg) {
 

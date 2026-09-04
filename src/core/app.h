@@ -3,8 +3,6 @@
 
 #include "args/args.h"
 
-#include <memory>
-
 using namespace std;
 
 class App {

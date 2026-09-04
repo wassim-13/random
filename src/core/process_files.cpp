@@ -1,16 +1,10 @@
 #include "process.h"
 
-#include <algorithm>
-#include <atomic>
 #include <cstring>
-#include <memory>
-#include <string>
-#include <thread>
-#include <vector>
-
 #include <fcntl.h>
 #include <sys/mman.h>
 #include <sys/stat.h>
+#include <thread>
 #include <unistd.h>
 
 MappedFile::~MappedFile() {

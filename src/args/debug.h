@@ -1,10 +1,7 @@
 #ifndef DEBUG_H
 #define DEBUG_H
 
-#include <format>
 #include <print>
-#include <string_view>
-#include <utility>
 
 #if !defined(NDEBUG) || defined(DEBUG)
 constexpr bool is_debug_build = true;
