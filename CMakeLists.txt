@@ -20,7 +20,8 @@ add_executable(random
     src/args/short_args.cpp
 
     src/core/app.cpp
-    src/core/process.cpp
+    src/core/process_dirs.cpp
+    src/core/process_files.cpp
     src/core/utils.cpp
 )
 

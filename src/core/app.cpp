@@ -67,7 +67,7 @@ void App::run(vector<string>& args) {
     int64_t line = 0;
 
     for (auto& str : app_data->extras) {
-        if (limit && line > print_data->limit)
+        if (limit && line >= print_data->limit)
             break;
 
         if (indexed) {
